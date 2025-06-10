@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-[] text-white font-sans flex items-center justify-center pt-20">
+
+  <div class="w-[1375px] bg-[#1a191f] text-[#9b9dab] rounded-t-[12px]">
+    <header class="bg-teal-600 p-4 flex justify-between items-center rounded-t-[12px]">
+    <div class="flex items-center space-x-3">
+      <button class="text-white text-[22px]"><i class="fa-solid fa-bars"></i></button>
+      <button class="text-white text-[20px]"><i class="fa-solid fa-house"></i></button>
+      <h1 class="text-xl text-white">Eng so‘nggi 2025 Tarjima Kinolar</h1>
+    </div>
+    <div class="flex space-x-4">
+      <button><i class="fa-solid fa-calendar-day text-[20px] text-white"></i></button>
+      <button><i class="fa-solid fa-magnifying-glass text-[20px] text-white"></i></button>
+    </div>
+  </header>
+
+  <section class="p-4">
+    <h2 class="text-xl mb-1">PREMER</h2>
+    <p class="text-gray-300 mb-4">Issig'ida tomosha qilib oling! <span class="text-teal-400">Hammasi bizda!</span></p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-gray-800 rounded shadow overflow-hidden">
+        <div class="relative">
+          <img src="http://asilmedia.org/rasmlar/images/2025/06/09/480xNx8e9727aec4af883694b9bbbf2999fd55.png.pagespeed.ic.9iii9jp7CE.webp" class="w-full h-52 object-cover">
+          <div class="absolute top-2 left-2 bg-black bg-opacity-60 px-2 py-1 text-xs rounded">
+            480p | 720p | 1080p <br> 2-fasl 2-qism
+          </div>
+          <div class="absolute top-2 right-2 bg-yellow-400 text-black text-sm px-2 py-1 rounded">★ 619</div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-semibold text-lg text-white">Bizning so‘ngimiz</h3>
+          <p class="text-sm text-gray-400">2023 yil · Serialar</p>
+        </div>
+      </div>
+
+      <div class="bg-gray-800 rounded shadow overflow-hidden">
+        <div class="relative">
+          <img src="http://asilmedia.org/uploads/posts/2025-06/480xNx1749405959_image_psd27.jpg.pagespeed.ic.JvLL-tjUfy.webp" class="w-full h-52 object-cover">
+          <div class="absolute top-2 left-2 bg-black bg-opacity-60 px-2 py-1 text-xs rounded">
+            TS <br> 480p | 720p | 1080p
+          </div>
+          <div class="absolute top-2 right-2 bg-yellow-400 text-black text-sm px-2 py-1 rounded">★ 74</div>
+        </div>
+        <div class="p-3">
+          <h3 class="font-semibold text-lg text-white">Balerina - Jon Ulik olamidan</h3>
+          <p class="text-sm text-gray-400">2025 · Tarjima kinoteatri</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="{% url 'video_page' %}" class="p-4">
+    <h2 class="text-xl font-bold mb-2">TARJIMA KINO <span class="text-green-500">2025</span></h2>
+    <p class="text-gray-300 mb-4">O'zbek kinolar</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Film Card -->
+      <div class="bg-gray-800 rounded overflow-hidden shadow">
+        <div class="relative">
+          <img src="https://i.imgur.com/L8vG08p.jpeg" class="w-full h-40 object-cover">
+          <div class="absolute top-2 left-2 bg-black bg-opacity-60 px-2 py-1 text-xs rounded">
+            480p | 720p | 1080p
+          </div>
+        </div>
+        <div class="p-2">
+          <h3 class="text-sm font-medium text-white">Pulp Fiction</h3>
+          <p class="text-xs text-gray-400">Tarjima kino</p>
+        </div>
+      </div>
+
+    </div>
+</a>
+  </div>
+
+</div>
+{% endblock %}
