@@ -2,14 +2,19 @@
 {% load static %}
 
 {% block content %}
-<div class="bg-[] text-white font-sans flex items-center justify-center pt-20">
+<div class="bg-[#212327] text-white font-sans pt-20">
 
-    <div class="w-[1375px] bg-[#1a191f] text-[#9b9dab] rounded-t-[12px]">
+    <!-- Container -->
+    <div class="max-w-[1375px] mx-auto bg-[#1a191f] text-[#9b9dab] rounded-t-[12px]">
+
+        <!-- Header -->
         <header class="bg-teal-600 p-4 flex justify-between items-center rounded-t-[12px]">
             <div class="flex items-center space-x-3">
-                <button class="text-white text-[22px]"><i class="fa-solid fa-bars"></i></button>
-                <a href="{% url 'home' %}">
-                    <button class="text-white text-[20px]"><i class="fa-solid fa-house"></i></button>
+                <button class="text-white text-[22px]">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <a href="{% url 'home' %}" class="text-white text-[20px]">
+                    <i class="fa-solid fa-house"></i>
                 </a>
                 <h1 class="text-xl text-white">Eng so‘nggi 2025 Tarjima Kinolar</h1>
             </div>
@@ -19,170 +24,78 @@
             </div>
         </header>
 
+        <!-- Premyeralar Section -->
         <section class="p-4">
-            <h2 class="text-xl mb-1">PREMER</h2>
-            <p class="text-gray-300 mb-4">Issig'ida tomosha qilib oling! <span class="text-teal-400">Hammasi
-                    bizda!</span></p>
+            <h2 class="text-xl mb-1 uppercase text-white">Premyeralar</h2>
+            <p class="text-gray-300 mb-4">Issig'ida tomosha qilib oling! <span class="text-teal-400">Hammasi bizda!</span></p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-gray-800 rounded shadow overflow-hidden">
-                    <div class="relative">
-                        <img src="http://asilmedia.org/rasmlar/images/2025/06/09/480xNx8e9727aec4af883694b9bbbf2999fd55.png.pagespeed.ic.9iii9jp7CE.webp"
-                            class="w-full h-52 object-cover">
-                        <div class="absolute top-2 left-2 bg-black bg-opacity-60 px-2 py-1 text-xs rounded">
-                            480p | 720p | 1080p <br> 2-fasl 2-qism
-                        </div>
-                        <div class="absolute top-2 right-2 bg-yellow-400 text-black text-sm px-2 py-1 rounded">★ 619
-                        </div>
+            <swiper-container class="mySwiper" navigation="true" slides-per-view="4">
+                {% for premyeralar in premyeralar %}
+                <swiper-slide>
+                    <div class="w-[213px] h-[331px] bg-[#222933] p-2 rounded-sm hover:bg-[#222939] cursor-pointer">
+                        <img class="w-[223px] h-[275px] object-cover" src="{{ premyeralar.banner.url }}" alt="">
+                        <h1 class="text-center text-[#a4badb] text-[13px] mt-4 hover:text-white duration-300">
+                            {{ premyeralar.title }}
+                        </h1>
                     </div>
-                    <div class="p-3">
-                        <h3 class="font-semibold text-lg text-white">Bizning so‘ngimiz</h3>
-                        <p class="text-sm text-gray-400">2023 yil · Serialar</p>
-                    </div>
-                </div>
-
-                <div class="bg-gray-800 rounded shadow overflow-hidden">
-                    <div class="relative">
-                        <img src="http://asilmedia.org/uploads/posts/2025-06/480xNx1749405959_image_psd27.jpg.pagespeed.ic.JvLL-tjUfy.webp"
-                            class="w-full h-52 object-cover">
-                        <div class="absolute top-2 left-2 bg-black bg-opacity-60 px-2 py-1 text-xs rounded">
-                            TS <br> 480p | 720p | 1080p
-                        </div>
-                        <div class="absolute top-2 right-2 bg-yellow-400 text-black text-sm px-2 py-1 rounded">★ 74
-                        </div>
-                    </div>
-                    <div class="p-3">
-                        <h3 class="font-semibold text-lg text-white">Balerina - Jon Ulik olamidan</h3>
-                        <p class="text-sm text-gray-400">2025 · Tarjima kinoteatri</p>
-                    </div>
-                </div>
-            </div>
+                </swiper-slide>
+                {% endfor %}
+            </swiper-container>
         </section>
 
-        <div class="container px-4 mt-10">
-            <h2 class="text-[24px] mb-6">TARJIMA KINO</h2>
-            <div class="flex items-center justify-between grid grid-cols-5">
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[255px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[255px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[255px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[255px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[251px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[251px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[251px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[251px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Tarjima Kinolar Section -->
+        <section class="p-4">
+            <h2 class="text-xl mb-1 uppercase text-white">Tarjima Kinolar</h2>
+            <p class="text-gray-300 mb-4">Issig'ida tomosha qilib oling! <span class="text-teal-400">Hammasi bizda!</span></p>
 
-        <div class="container px-4 mt-4">
-            <h2 class="text-[24px] mb-6">SERIALLAR</h2>
-            <div class="flex items-center justify-between grid grid-cols-5">
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[255px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
+            <swiper-container class="mySwiper" navigation="true" slides-per-view="4">
+                {% for tarjimakinolar in tarjimakinolar %}
+                <swiper-slide>
+                    <div class="w-[213px] h-[331px] bg-[#222933] p-2 rounded-sm hover:bg-[#222939] cursor-pointer">
+                        <img class="w-[223px] h-[275px] object-cover" src="{{ tarjimakinolar.banner.url }}" alt="">
+                        <h1 class="text-center text-[#a4badb] text-[13px] mt-4 hover:text-white duration-300">
+                            {{ tarjimakinolar.title }}
+                        </h1>
                     </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[255px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
+                </swiper-slide>
+                {% endfor %}
+            </swiper-container>
+        </section>
+
+        <!-- Serialar Section -->
+        <section class="p-4">
+            <h2 class="text-xl mb-1 uppercase text-white">Serialar</h2>
+            <p class="text-gray-300 mb-4">Issig'ida tomosha qilib oling! <span class="text-teal-400">Hammasi bizda!</span></p>
+
+            <swiper-container class="mySwiper" navigation="true" slides-per-view="4">
+                {% for seriallar in seriallar %}
+                <swiper-slide>
+                    <div class="w-[213px] h-[331px] bg-[#222933] p-2 rounded-sm hover:bg-[#222939] cursor-pointer">
+                        <img class="w-[223px] h-[275px] object-cover" src="{{ seriallar.banner.url }}" alt="">
+                        <h1 class="text-center text-[#a4badb] text-[13px] mt-4 hover:text-white duration-300">
+                            {{ seriallar.title }}
+                        </h1>
                     </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[255px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[255px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[251px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[251px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[251px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-                <div class="">
-                    <img src="{% static 'img/pexels-pixabay-46160.jpg' %}" class="w-[251px] h-[392px]">
-                    <div class="mb-10 bg-[#1a1b23] w-[251px] h-[61px] p-[8px]">
-                        <p class="">YERGA QAYNISH</p>
-                        <p class="text-xs ">2019 • Multifilmlar</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </swiper-slide>
+                {% endfor %}
+            </swiper-container>
+        </section>
+
+        <section class="p-4">
+            <h1 class="text-xl mb-1 uppercase text-white">Eng so'ngi tarjima kinolar bizda!</h1>
+            <p class="text-gray-300 mb-4">O'zbekcha onlayn kinoteatrimizga xush kelibsiz. Uyda yaxshi film tomosha qilayotganda qanchalik tez-tez dam olishni xohlaysiz? Bu yerda siz turli janrdagi son-sanoqsiz O'zbek tilidagi filmlarni onlayn tomosha qilishingiz mumkin. Ajoyib Komedik filmlar, Sevgi haqidagi filmlar, yurakni vayron qiluvchi Trillerlar, Ujas kinolar va ajoyib Detektiv kinolar, Urush kinolar va bosh aylantiruvchi Fantastik kinolar va boshqalar. Sizga yaxshi eski klassiklar yoqadimi yoki Yangi tarjima kinolar? Bizning onlayn kinoteatrimizda ikkalasi ham ko'p. Har kimning didi har xil va kimligingizdan qat'i nazar, har kim o'ziga yoqadigan filmni topadi. Oilaviy komediya tomosha qilayotganda dam olishni va kulishni yaxshi ko'radiganmi yoki aksincha, baquvvat Jangari kinolarga e'tibor qaratganmisiz? Yoki sizda adrenalin yetarli emasdir - u holda bizda siz uchun butun filmni shubhada ushlab turadigan dahshatli va Triller kinolar bor. Tanlov turlicha, siz chet el filmlarini afzal ko'rasizmi yoki siz vatanparvarmisiz va O'zbek kinolarni afzal ko'rasizmi? Biz doim siz uchun ishlaymiz! Maroqli hordiq oling!</p>
+        </section>
+
+        <section class="p-4">
+            <h1 class="text-xl mb-1 uppercase text-white">Chet el seriallari</h1>
+            <p class="text-gray-300 mb-4">Ko'pgina zamonaviy Seriallar deyarli to'liq metrajli filmlar bilan teng. Yaxshi spektakl birinchi epizoddanoq tomoshabin e’tiborini tortib, ularni yangi qismni intiqlik bilan kutishga qodir. Bizning kinoteatrimizda siz turli janrdagi Onlayn seriallar tomosha qilishingiz mumkin. Siz Sarguzasht kinolarni tomosha qilishni yaxshi ko'rasizmi yoki dramatik seriallarning muxlisimisiz yoki ehtimol ikkalasi birgalikda? Bizning kollektsiyamiz juda ko'p Gollivud va rus seriallariga boy. Siz serial filmlarni yaxshi ko'rasizmi yoki aksincha, mini-seriallarni yaxshi ko'rasizmi - bizning onlayn kinoteatrimiz har biringizning ehtiyojiga kiradi va kam sonli odamlarni befarq qoldiradi. Ayni damda teleko‘rsatuvlarni onlayn tomosha qiling va birinchi epizoddanoq voqelikni tark etib, qahramonlarga hamdard bo‘lishni boshlang.</p>
+        </section>
+
+        <section class="p-4">
+            <h1 class="text-xl mb-1 uppercase text-white">Multfilmlar</h1>
+            <p class="text-gray-300 mb-4">Kichkintoylar va kattalar Multfilmlarni tomosha qilishni yaxshi ko'radilar va bizning onlayn kinoteatrimizda ular juda ko'p. Bizning portalimizda siz sovet, rus va Gollivudda ishlab chiqarilgan multfilmlarini topasiz. Ular sizni va farzandlaringizni sarguzashtlar va ertak qahramonlarining sehrli olamiga olib boradi, bu yerda imkonsiz narsa mumkin bo'ladi! Farzandingiz rivojlanishini istasangiz - bu borada sizga yordam beradigan multfilmlarimiz bor. Bizning multfilmlar to'plamimiz sizni va farzandlaringizni xursand qilishi kafolatlangan! Bizning kinoteatrda oilangiz bilan onlayn multfilmlarni tomosha qilish tez, qulay va sifatli. Maroqli hordiq tilaymiz!</p>
+        </section>
+
     </div>
-
 </div>
 {% endblock %}
